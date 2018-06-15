@@ -15,15 +15,16 @@ void PID::Init(double Kp, double Ki, double Kd) {
 	i_error=0.;
 	d_error=0.;
 	
-	Kp=Kp;
-	Ki=Ki;
-	Kd=Kd;
+	PID::Kp=Kp;
+	PID::Ki=Ki;
+	PID::Kd=Kd;
 }
 
 void PID::UpdateError(double cte) {
-	p_error=cte;
-	i_error+=cte;
-	d_error-=cte;
+    d_error = cte-p_error;
+	p_error = cte;
+	i_error += cte;
+	
 }
 
 double PID::TotalError() {

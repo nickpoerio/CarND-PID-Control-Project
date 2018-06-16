@@ -43,7 +43,8 @@ int main()
   //pid.Init(.25,.0001,4); already acceptable but improvable
   //pid.Init(.25,.0001,5); a bit nervous
   //pid.Init(.2,.0001,4); the best so far
-  pid.Init(.17,.0001,4); //ok, no much room for improvement
+  //pid.Init(.17,.0001,4); //ok, no much room for improvement
+  pid.Init(.17,.0001,2.7);
   //behavioral cloning was much better. A model predictive will certainly help
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {

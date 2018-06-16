@@ -71,7 +71,7 @@ int main()
 		  
 		  double throttle_value;
 		  pid2.UpdateError(80-speed);
-		  throttle_value = fmax(0.,fmin(1.,-pid2.TotalError()));
+		  throttle_value = fmax(0.,fmin(1.,pid2.TotalError()));
           /*
           * TODO: Calcuate steering value here, remember the steering value is
           * [-1, 1].

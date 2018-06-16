@@ -45,7 +45,7 @@ int main()
   //pid.Init(.2,.0001,4); the best so far, still nervous
   //pid.Init(.15,.0001,2.5); 
   //pid.Init(.13,.0,2.6);
-  pid.Init(.05,.0,1.8);
+  pid.Init(.055,.0,2.2);
   
   PID pid2;
   pid2.Init(.3,.00003,0.);

@@ -45,11 +45,13 @@ int main()
   //pid.Init(.2,.0001,4); the best so far, still nervous
   //pid.Init(.15,.0001,2.5); 
   //pid.Init(.13,.0,2.6);
+  
+  //@ 60 mph
   //pid.Init(.06,.0,1.2);
   //pid.Init(.065,.0,1.3);
   //pid.Init(.07,.0,1.4);
   //pid.Init(.07,.0,1.2);
-  pid.Init(.075,.0,1.3);
+  pid.Init(.07,.0,1.3);
   
   PID pid2;
   pid2.Init(.3,.00003,0.);

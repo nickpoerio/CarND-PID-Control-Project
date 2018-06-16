@@ -70,7 +70,7 @@ int main()
 		  steer_value = fmax(-1.,fmin(1.,-pid.TotalError()));
 		  
 		  double throttle_value;
-		  pid2.UpdateError(60-speed);
+		  pid2.UpdateError(45-speed);
 		  throttle_value = fmax(0.,fmin(1.,pid2.TotalError()));
           /*
           * TODO: Calcuate steering value here, remember the steering value is

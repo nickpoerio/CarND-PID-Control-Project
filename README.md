@@ -1,6 +1,20 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
+## P gain
+The proportional gain is somewhat similar to the stiffness of a mechanical system. Increasing it the promptness should increase but an undamped (oscillatory) behavior may occur. This is the first parameter that I have tuned both for steering and speed controller
+
+## I gain
+It reduces the asymptotical error of the controller. If too high it may cause instability. For the steering controller immediately appeared not to be that useful, while it is necessary for the speed controller
+
+## D gain
+This parameter should reduce the oscillatory behavior of the proportional controller. If too high may cause excess reaction on noise and/or sharp variations in the error.
+
+
+## PID tuning
+Given the default throttle, I first tuned the steering PD controller. As I said, the I gain was not really necessary.
+Then I increased the speed to 60 mph introducing a PI speed controller: as the speed reference is constant the D gain is not really necessary. At this speed I found the optimal steering controller, approximately dividing the previously found gains by the speed ratio (~2) and then fine tuning.
+
 ---
 
 ## Dependencies

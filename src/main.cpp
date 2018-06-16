@@ -45,7 +45,7 @@ int main()
   //pid.Init(.2,.0001,4); the best so far, still nervous
   //pid.Init(.15,.0001,2.5); 
   //pid.Init(.13,.0,2.6);
-  pid.Init(.13,.0,13);
+  pid.Init(.05,.0,1);
   
   PID pid2;
   pid2.Init(.1,.00001,0.);
@@ -70,7 +70,7 @@ int main()
 		  steer_value = fmax(-1.,fmin(1.,-pid.TotalError()));
 		  
 		  double throttle_value;
-		  pid2.UpdateError(45-speed);
+		  pid2.UpdateError(50-speed);
 		  throttle_value = fmax(0.,fmin(1.,pid2.TotalError()));
           /*
           * TODO: Calcuate steering value here, remember the steering value is

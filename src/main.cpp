@@ -45,9 +45,10 @@ int main()
   //pid.Init(.2,.0001,4); the best so far, still nervous
   //pid.Init(.15,.0001,2.5); 
   //pid.Init(.15,.0,2.5);
-  //pid.Init(.13,.0,2.6);
-  pid.Init(.13,.0,3.9);
-  //behavioral cloning was much better. A model predictive will certainly help
+  pid.Init(.13,.0,2.6);
+  
+  PID pid2;
+  pid2.Init(.1,.001,0.);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
@@ -67,6 +68,10 @@ int main()
           double steer_value;
 		  pid.UpdateError(cte);
 		  steer_value = fmax(-1.,fmin(1.,-pid.TotalError()));
+		  
+		  double throttle_value;
+		  pid2.UpdateError(80-speed);
+		  throttle_value = fmax(0.,fmin(1.,-pid2.TotalError()));
           /*
           * TODO: Calcuate steering value here, remember the steering value is
           * [-1, 1].
@@ -79,7 +84,7 @@ int main()
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.3;
+          msgJson["throttle"] = throttle_value;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);

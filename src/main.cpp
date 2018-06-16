@@ -51,7 +51,7 @@ int main()
   //pid.Init(.065,.0,1.3);
   //pid.Init(.07,.0,1.4);
   //pid.Init(.07,.0,1.2);
-  pid.Init(.075,.0,1.1);
+  pid.Init(.075,.0,1.2);
   
   PID pid2;
   pid2.Init(.3,.00003,0.);
